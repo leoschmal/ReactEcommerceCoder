@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {menuItems} from './MenuItems';
 import './NavBar.css'
-
+import {CartWidget} from './CartWidget'
 
 class NavBar extends Component {
     render(){
@@ -16,16 +16,12 @@ class NavBar extends Component {
                             <li key={index}>
                                 <a className={item.cName} href={item.link}>
                                     {item.titulo}
-                                </a>
-                            
-                            
+                                </a>                           
                             </li>
                         )
-                    })}
-                    
-                    
+                    })}                    
                 </ul>
-
+                <CartWidget />
             </nav>
         )
     }
