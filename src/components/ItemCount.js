@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import './ItemCount.css'
 
-export const ItemCount = () => {
-  let stockInicial = 10;
+export const ItemCount = ({inicial}) => {
+  let stockInicial = Number(inicial);
 
   const [contador, setContador] = useState(0);
   const [stock, setStock] = useState(stockInicial);
@@ -28,7 +28,8 @@ export const ItemCount = () => {
         <h3>{contador}</h3>
         <button onClick={sumar}>+</button>        
       </div>
-      <h4>Stock:{stock} </h4>
+      <h4>Stock: {stock} </h4>
+      <button>Agregar ({contador})</button>
     </div>
   );
 };

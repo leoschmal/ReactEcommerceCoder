@@ -4,7 +4,7 @@ export const ItemListContainer = ({greeting}) => {
     return(
         <p>
             {greeting}
-            <ItemCount />
+            <ItemCount inicial='20' />
         </p>
         )
 }
