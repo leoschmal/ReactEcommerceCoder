@@ -1,0 +1,9 @@
+.itemList{
+    display: flex;
+    gap: 1rem;
+    justify-content:space-around;
+}
+
+.imgCard{
+    width: 100%;
+}

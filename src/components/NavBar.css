@@ -1,6 +1,7 @@
 .navBarItems{
     display: flex;
     justify-content: space-between;
+    background-color: gray;
 
 }
 .navBarLogo{
@@ -13,6 +14,7 @@
     list-style: none;
     gap: 3rem;
     margin-right:2rem;
+    
 }
 a{
     text-decoration: none;

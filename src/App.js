@@ -6,12 +6,13 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <ItemListContainer greeting="bienvenido" />
+      
       <header className="App-header">        
         <p>
           Hola!!
         </p>        
       </header>
+      <ItemListContainer greeting="bienvenido" />
       
     </div>
   );
