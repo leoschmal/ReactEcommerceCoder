@@ -27,17 +27,11 @@ export const ItemList = ()=>{
                     {products.map((products, index)=>{
                         return(
                             <div key={index} className="itemCard">
-                                <h3>Código: {products.id}</h3>
-                                <h3>{products.titulo}</h3>
-                                <h3>${products.precio}</h3>
-                                <img className="imgCard" src={products.url} alt='.v..' />
-                                <button>Detalles</button>                       
-                                                          
+                                <Item item = {products} />
+                                <button>Detalles</button> 
                             </div>
                         )
                     })}                    
-        </div>
-        
+        </div>        
         )
-
 }

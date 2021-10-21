@@ -1,4 +1,6 @@
 .itemCard{
     background-color: wheat;
-    width: 20%;
+}
+.imgCard{
+    width: 100%;
 }
