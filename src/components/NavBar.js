@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import {menuItems} from './MenuItems';
 import './NavBar.css'
 import {CartWidget} from './CartWidget'
@@ -8,15 +9,15 @@ class NavBar extends Component {
         return(
             <nav className="navBarItems">
                 <h1 className="navBarLogo">
-                    byVEGAN
+                   <Link to={'/'}> byVEGAN </Link>
                 </h1>
                 <ul className="listItems">
                     {menuItems.map((item, index)=>{
                         return(
                             <li key={index}>
-                                <a className={item.cName} href={item.link}>
+                                <Link className={item.cName} to={item.link}>
                                     {item.titulo}
-                                </a>                           
+                                </Link>                           
                             </li>
                         )
                     })}                    

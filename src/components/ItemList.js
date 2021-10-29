@@ -22,16 +22,11 @@ export const ItemList = ()=>{
 
 
     return(
-        
         <div className="itemList">
-                    {products.map((products, index)=>{
-                        return(
-                            <div key={index} className="itemCard">
-                                <Item item = {products} />
-                                <button>Detalles</button> 
-                            </div>
-                        )
-                    })}                    
-        </div>        
-        )
+        {products.map((product, index) => (            
+            <div key={index} className="itemCard">
+                <Item item = {product} />                
+            </div>))}
+        </div>                      
+        )     
 }
