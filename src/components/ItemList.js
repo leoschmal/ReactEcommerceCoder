@@ -12,12 +12,12 @@ export const ItemList = ()=>{
         setTimeout(() => {
             resolve(Productos);
         }, 2000)
-    });
+    })
 
     useEffect(()=>{
         carga
         .then((resolve) => setProducts(resolve))
-        .catch((err)=>alert(err));
+        .catch((err)=>alert(err));            
     }, []);
 
 
@@ -30,3 +30,5 @@ export const ItemList = ()=>{
         </div>                      
         )     
 }
+
+

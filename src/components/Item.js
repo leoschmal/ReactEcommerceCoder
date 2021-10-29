@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useEffect , useParams} from "react";
 import './Item.css'
 
-export const Item = ({item}) =>{
-    //const { itemIde } = useParams();
+export const Item = ({item}) =>{   
 
     return(
         <div className="itemCard">

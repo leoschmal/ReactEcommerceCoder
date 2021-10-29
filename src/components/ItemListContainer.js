@@ -4,12 +4,12 @@ import './ItemListContainer.css'
 
 export const ItemListContainer = ({greeting}) => {
     return(
-        <p>
+        <div>
             {greeting}
             <ItemCount inicial='20' />
             <div className="listContainer">
                 <ItemList />
             </div>
-        </p>
+        </div>
         )
 }

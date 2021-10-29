@@ -1,4 +1,4 @@
-import React, { useState , useEffect, useParams} from "react";
+import React, { useState , useEffect} from "react";
 import {Productos} from './Productos';
 import {ItemDetail} from './ItemDetail';
 
@@ -11,13 +11,13 @@ export const ItemDetailContainer = () => {
             setTimeout(() => {
                 resolve(Productos);
             }, 2000)
-        });
+        })
     
         useEffect(()=>{
             carga
             .then((resolve) => setProduct(resolve))//actualizo producto
             .catch((err)=>alert(err));
-        }, []);  
+            }, []);  
           
     
     // Implementar mock invocando a getItem() y utilizando el resolver then
