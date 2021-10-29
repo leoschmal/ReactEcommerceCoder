@@ -7,16 +7,21 @@ export const ItemDetailContainer = () => {
         /* Esta función debe retornar la promesa que resuelva con delay */
         const [product, setProduct] = useState();// Hook
     
-        const carga = new Promise((resolve, reject)=>{//promesa que obtiene el primer elem a los 2 seg
-            setTimeout(() => {
-                resolve(Productos);
-            }, 2000)
-        })
+        // const carga = new Promise((resolve, reject)=>{//promesa que obtiene el primer elem a los 2 seg
+        //     setTimeout(() => {
+        //         resolve(Productos);
+        //     }, 2000)
+        // })
     
         useEffect(()=>{
-            carga
+            function carga (){ new Promise((resolve, reject)=>{//promesa que obtiene el primer elem a los 2 seg
+                setTimeout(() => {
+                    resolve(Productos);
+                }, 2000)
+            })
             .then((resolve) => setProduct(resolve))//actualizo producto
-            .catch((err)=>alert(err));
+            .catch((err)=>alert(err));}
+            carga();
             }, []);  
           
     

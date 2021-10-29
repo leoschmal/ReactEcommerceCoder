@@ -8,16 +8,21 @@ export const ItemList = ()=>{
 
     const [products, setProducts] = useState([]);
 
-    const carga = new Promise((resolve, reject)=>{
-        setTimeout(() => {
-            resolve(Productos);
-        }, 2000)
-    })
+    // const carga = new Promise((resolve, reject)=>{
+    //     setTimeout(() => {
+    //         resolve(Productos);
+    //     }, 2000)
+    // })
 
     useEffect(()=>{
-        carga
+        function carga () {new Promise((resolve, reject)=>{
+            setTimeout(() => {
+                resolve(Productos);
+            }, 2000)
+        })
         .then((resolve) => setProducts(resolve))
-        .catch((err)=>alert(err));            
+        .catch((err)=>alert(err));}
+        carga();            
     }, []);
 
 
