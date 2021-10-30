@@ -6,6 +6,10 @@ Este proyecto está hecho con [Create React App](https://github.com/facebook/cre
 ## E-Commerce - By Vegan
 ### Tienda de Productos Veganos
 
-In the project directory, you can run:
+Para visualizar el proyecto, cliquea [aquí](https://react-ecommerce-coder.vercel.app/).
 
+### Recursos Utilizados
+HTML5, CSS3, Javascript
+### Framework
+ReactJs : JSX & Transpiling, Componentes, Hooks, Promises, asincronía, MAP, routing
 
