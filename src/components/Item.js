@@ -9,7 +9,7 @@ export const Item = ({item}) =>{
             <img className="imgCard" src = {item.url} alt="..." />
             <h4>${item.precio}.-</h4>
             <p>Código:{item.id}</p>
-            <Link to= {"/item/" + item.id}>Detalles</Link>
+            <Link to= {"/item/" + item.id}><button>Detalles</button></Link>
         </div>
         )
 }

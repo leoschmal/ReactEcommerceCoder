@@ -8,12 +8,6 @@ export const ItemList = ()=>{
 
     const [products, setProducts] = useState([]);
 
-    // const carga = new Promise((resolve, reject)=>{
-    //     setTimeout(() => {
-    //         resolve(Productos);
-    //     }, 2000)
-    // })
-
     useEffect(()=>{
         function carga () {new Promise((resolve, reject)=>{
             setTimeout(() => {
@@ -28,10 +22,10 @@ export const ItemList = ()=>{
 
     return(
         <div className="itemList">
-        {products.map((product, index) => (            
+        {products ? products.map((product, index) => (            
             <div key={index} className="itemCard">
                 <Item item = {product} />                
-            </div>))}
+            </div>)) : <div>Cargando Productosss....</div>}
         </div>                      
         )     
 }

@@ -1,4 +1,4 @@
-import {ItemCount} from './ItemCount';
+//import {ItemCount} from './ItemCount';
 import {ItemList} from './ItemList';
 import './ItemListContainer.css'
 
@@ -6,7 +6,7 @@ export const ItemListContainer = ({greeting}) => {
     return(
         <div>
             {greeting}
-            <ItemCount inicial='20' />
+            {/* <ItemCount inicial='20' /> */}
             <div className="listContainer">
                 <ItemList />
             </div>

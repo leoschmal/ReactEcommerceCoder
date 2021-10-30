@@ -28,7 +28,7 @@ export const ItemCount = ({inicial}) => {
         <h3>{contador}</h3>
         <button onClick={sumar}>+</button>        
       </div>
-      <h4>Stock: {stock} </h4>
+      {stock !== 1 ? <h4>{stock} disponibles</h4> : <h4>Última Disponible</h4>}
       <button>Agregar ({contador})</button>
     </div>
   );
