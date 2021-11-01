@@ -22,6 +22,9 @@ export const ItemDetail = ({ items }) => {
   return (
     <>
       <div className="container">
+      <div className="imgContainer">
+          <img src={item.url} className="imgDetail" alt="..." />
+        </div>
         <div className="dataContainer">
           <h4>{item.titulo}</h4>
           <p>precio:<span> ${pesosArg.format(item.precio)}</span></p>
@@ -39,9 +42,7 @@ export const ItemDetail = ({ items }) => {
           <button className="btn btn-info m-3">Ver Carrito</button>
           <button className="btn btn-info m-3"> <Link to={'/list'}> Volver</Link></button>
         </div>
-        <div className="imgContainer">
-          <img src={item.url} className="imgDetail" alt="..." />
-        </div>
+        
         <div className="relacionados">
           <h2>Productos Relacionados</h2>          
           <div>
