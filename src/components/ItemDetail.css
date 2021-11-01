@@ -1,4 +1,5 @@
 .container{
+    margin-top: 2rem;;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -7,6 +8,9 @@
     justify-items: center;
 }
 .imgContainer{
+    padding: 0.5rem;
+    border: 1px solid blue;
+    border-radius: 0.5rem;
     grid-column: 1;
     grid-row: 1/2;
     width: 100%;
@@ -16,6 +20,9 @@
     text-align: center;
 }
 .dataContainer{
+    padding: 0.5rem;
+    border: 1px solid blue;
+    border-radius: 0.5rem;
     grid-column: 2;
     grid-row: 1/2;
     width: 50%;
@@ -23,4 +30,28 @@
 .relacionados{
     grid-column: 1/3;
     grid-row: 2;
+}
+
+@media (max-width: 500px){
+    .container{
+        width: 100%;
+        display: column;         
+    }
+    .imgContainer{        
+        width: 100%;
+    }
+    .imgDetail{
+        width: 90%;
+        text-align: center;
+    }
+    .dataContainer{
+        grid-column: 1;
+        grid-row: 2;
+        width: 50%;
+    }
+    .relacionados{
+        width: 100%;
+    }
+
+
 }

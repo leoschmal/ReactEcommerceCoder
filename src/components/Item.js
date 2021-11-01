@@ -5,11 +5,11 @@ export const Item = ({item}) =>{
 
     return(
         <div className="itemCard">
-            <h3> {item.titulo} </h3>
+            <h4 className="cardTitle"> {item.titulo} </h4>
             <img className="imgCard" src = {item.url} alt="..." />
-            <h4>${item.precio}.-</h4>
-            <p>Código:{item.id}</p>
-            <Link to= {"/item/" + item.id}><button>Detalles</button></Link>
+            <h3>${item.precio}.-</h3>
+            <p className="ref">REF: {item.id}</p>
+            <Link to= {"/item/" + item.id}><button className="btn btn-info btnDetail">Detalles</button></Link>
         </div>
         )
 }

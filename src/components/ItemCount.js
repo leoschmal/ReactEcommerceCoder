@@ -4,7 +4,7 @@ import './ItemCount.css'
 export const ItemCount = ({inicial}) => {
   let stockInicial = Number(inicial);
 
-  const [contador, setContador] = useState(0);
+  const [contador, setContador] = useState(1);
   const [stock, setStock] = useState(stockInicial);
 
   const sumar = () => {
@@ -24,12 +24,12 @@ export const ItemCount = ({inicial}) => {
   return (
     <div>
       <div className="addItem">
-        <button onClick={restar}>-</button>
+        <button onClick={restar} className="btn btn-info">-</button>
         <h3>{contador}</h3>
-        <button onClick={sumar}>+</button>        
+        <button onClick={sumar} className="btn btn-info">+</button>        
       </div>
-      {stock !== 1 ? <h4>{stock} disponibles</h4> : <h4>Última Disponible</h4>}
-      <button>Agregar ({contador})</button>
+      {stock !== 1 ? <p>{stock} disponibles</p> : <h4>Última Disponible</h4>}
+      <button className="btn btn-warning">Agregar ({contador})</button>
     </div>
   );
 };

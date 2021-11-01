@@ -4,12 +4,21 @@
     display: flex;
     justify-content: space-between;
     background-color: gray;
+    text-decoration: none;
 
 }
+
 .navBarLogo{
+    font-family: 'Montserrat', sans-serif;
     margin-left:2rem;
+    font-weight: 700;
+}
+
+.navBarLogo:hover{
+    color: black;
 }
 .listItems{
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content:space-between;
     align-items: center;
@@ -21,4 +30,7 @@
 a{
     text-decoration: none;
     color: #000;
+}
+a:hover{
+    color:#000;
 }

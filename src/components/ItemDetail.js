@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import "./ItemDetail.css";
 import { ItemCount } from "./ItemCount";
@@ -22,8 +23,8 @@ export const ItemDetail = ({ items }) => {
     <>
       <div className="container">
         <div className="dataContainer">
-          <h3>{item.titulo}</h3>
-          <div>precio: ${pesosArg.format(item.precio)}</div>
+          <h4>{item.titulo}</h4>
+          <p>precio:<span> ${pesosArg.format(item.precio)}</span></p>
           {item.variedad.length !== 0 ? (
             <select>
               {item.variedad.map((variedad, index) => (
@@ -35,7 +36,8 @@ export const ItemDetail = ({ items }) => {
           )}
           <p>Descripción: {item.descripcion}</p>
           <ItemCount inicial={item.stock} />
-          <button>Ver Carrito</button>
+          <button className="btn btn-info m-3">Ver Carrito</button>
+          <button className="btn btn-info m-3"> <Link to={'/list'}> Volver</Link></button>
         </div>
         <div className="imgContainer">
           <img src={item.url} className="imgDetail" alt="..." />

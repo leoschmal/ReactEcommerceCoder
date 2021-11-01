@@ -19,8 +19,17 @@ function App() {
               </div>
             </header>
           </Route>
-          <Route exact path="/categoria">
-            <ItemListContainer greeting="bienvenido" />
+          <Route exact path="/list">
+            <ItemListContainer />
+          </Route>
+          <Route exact path="/categorias">
+            <h2>Seccion Categorías</h2>
+          </Route>
+          <Route exact path="/contacto">
+            <h2>Seccion Contacto</h2>
+          </Route>
+          <Route exact path="/login">
+            <h2>Seccion Login</h2>
           </Route>
           <Route exact path="/item/:itemIde">
             <ItemDetailContainer />
