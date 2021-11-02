@@ -1,7 +1,9 @@
 .itemCard{
     width: 15rem;
-    background-color: wheat;
+    background-color: var(--light-goldenrod-yellow);
     padding:0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 .imgCard{
     width: 100%;
@@ -17,3 +19,13 @@
 .ref{
     border: 1px solid black;
     }
+.btnDetail{
+    background-color:var(--dark-salmon);
+    border: none;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.btnDetail:hover{
+    background-color: var(--medium-carmine);
+
+}
+

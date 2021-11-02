@@ -1,5 +1,12 @@
-body{
-  font-family: 'Montserrat', sans-serif;
+:root {
+  --yellow-green-crayola: #d4e09bff;
+  --light-goldenrod-yellow: #f6f4d2ff;
+  --tea-green: #cbdfbdff;
+  --dark-salmon: #f19c79ff;
+  --medium-carmine: #a44a3fff;
+}
+body {
+  font-family: "Montserrat", sans-serif;
 }
 .App {
   text-align: center;
@@ -16,35 +23,34 @@ body{
   }
 }
 
-.App-header { 
+.App-header {
   background-image: url("https://res.cloudinary.com/dippgvhr3/image/upload/v1634937385/vegan/portada");
- 
+
   height: 90vh;
   min-height: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom center;
-  
 }
-.contenedorHeader{
+.contenedorHeader {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 .App-link {
   color: #61dafb;
 }
-.titulo{
+.titulo {
   font-size: 3rem;
   font-weight: 700;
-  color: white;  
+  color: white;
 }
 
 @keyframes App-logo-spin {

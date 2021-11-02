@@ -23,7 +23,8 @@ class NavBar extends Component {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse d-flex justify-content-evenly" id="navbarNav">
+          <div className="d-flex justify-content-center">
+          <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav listItems">
               {menuItems.map((item, index) => {
                 return (
@@ -37,6 +38,8 @@ class NavBar extends Component {
             </ul>
           </div>
           <CartWidget />
+          </div>
+          
         </div>
       </nav>
     );

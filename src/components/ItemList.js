@@ -23,7 +23,7 @@ export const ItemList = ()=>{
     return(
         <div className="itemList">
         {products !== [] ? products.map((product, index) => (            
-            <div key={index} className="itemCard">
+            <div key={index} className="">
                 <Item item = {product} />                
             </div>)) : <div>Cargando Productosss....</div>}
         </div>                      
