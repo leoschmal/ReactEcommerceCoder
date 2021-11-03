@@ -8,10 +8,10 @@ export const ItemList = ()=>{
 
     const [products, setProducts] = useState([]);
 
-    const categorias = Productos.map((cate)=>{
-        return cate.categoria;
-    })
-    const uniqueCat= [...new Set(categorias)]    
+    // const categorias = Productos.map((cate)=>{
+    //     return cate.categoria;
+    // })
+    //const uniqueCat= [...new Set(categorias)]    
 
     useEffect(()=>{
         function carga () {new Promise((resolve, reject)=>{
