@@ -1,6 +1,7 @@
 export const Productos = [{
         id: '01',
         categoria: 'Cereales',
+        categoriaId: '01',
         titulo: 'Cereales',
         variedad: [],
         precio: '333',
@@ -11,6 +12,7 @@ export const Productos = [{
     {
         id: '02',
         categoria: 'Frutas',
+        categoriaId: '02',
         titulo: 'Frutos Rojos',
         variedad: [],
         precio: '555',
@@ -21,6 +23,7 @@ export const Productos = [{
     {
         id: '03',
         categoria: 'Mixes',
+        categoriaId: '03',
         titulo: 'Mix Nutritivo',
         variedad: [],
         precio: '666',
@@ -31,6 +34,7 @@ export const Productos = [{
     {
         id: '04',
         categoria: 'Semillas',
+        categoriaId: '04',
         titulo: 'Semillas',
         variedad: [],
         precio: '999',
@@ -41,6 +45,7 @@ export const Productos = [{
     {
         id: '05',
         categoria: 'Milanesas, Bifecitos y Medallones',
+        categoriaId: '05',
         titulo: 'Bifecitos de Seitán Condimentados',
         variedad: [],
         precio: '320',
@@ -51,6 +56,7 @@ export const Productos = [{
     {
         id: '06',
         categoria: 'Embutidos',
+        categoriaId: '06',
         titulo: 'Salamín vegetal- 100g',
         variedad: [],
         precio: '180',
@@ -61,6 +67,7 @@ export const Productos = [{
     {
         id: '07',
         categoria: 'Embutidos',
+        categoriaId: '06',
         titulo: 'Longaniza Vegetal - 200g',
         variedad: [],
         precio: '240',
@@ -71,6 +78,7 @@ export const Productos = [{
     {
         id: '08',
         categoria: 'Matambres',
+        categoriaId: '07',
         titulo: 'Matambre Arrollado de Seitán - 500 g',
         variedad: [],
         precio: '380',
@@ -81,6 +89,7 @@ export const Productos = [{
     {
         id: '09',
         categoria: 'Matambres',
+        categoriaId: '07',
         titulo: 'Matambre Parrillero de Seitán - 500 g',
         variedad: [],
         precio: '320',
@@ -91,6 +100,7 @@ export const Productos = [{
     {
         id: '10',
         categoria: 'Quesos Veganos',
+        categoriaId: '08',
         titulo: 'Provoleta - 200 grs',
         variedad: [],
         precio: '290',
@@ -101,6 +111,7 @@ export const Productos = [{
     {
         id: '11',
         categoria: 'Quesos Veganos',
+        categoriaId: '08',
         titulo: 'Vegancream',
         variedad: [],
         precio: '240',
@@ -111,6 +122,7 @@ export const Productos = [{
     {
         id: '12',
         categoria: 'Embutidos',
+        categoriaId: '06',
         titulo: 'Chorizos Bombón - Bandeja de 1/2 docena',
         variedad: [],
         precio: '240',
@@ -121,6 +133,7 @@ export const Productos = [{
     {
         id: '13',
         categoria: 'Budines',
+        categoriaId: '09',
         titulo: 'Budines',
         variedad: ['Chocolate con Chips', 'Banana y Nuez con Crumble', 'Limón y Semillas de Amapola', 'Vainilla Crocante'],
         precio: '320',
@@ -131,6 +144,7 @@ export const Productos = [{
     {
         id: '14',
         categoria: 'Sandwiches',
+        categoriaId: '10',
         titulo: 'Sándwiches de Miga Triples',
         variedad: ['Pimientos al Ajillo', 'Morrones Asados', 'Crema de Choclos', 'Crema de Choclos al Champiñon', 'Aceitunas', 'Lechuga y Tomate', 'Champiñones', 'Berenjenas al Escabeche', 'Tofu Especiado', 'Ananá','Palmitos en Slasa Golf', 'Queso Vegamcrem al Puerro', 'Apio, Nueces, Queso tipo Roquefort'],
         precio: '400',
@@ -141,6 +155,7 @@ export const Productos = [{
     {
         id: '15',
         categoria: 'Sandwiches',
+        categoriaId: '10',
         titulo: 'Criollitos',
         variedad: [],
         precio: '350',
@@ -151,6 +166,7 @@ export const Productos = [{
     {
         id: '16',
         categoria: 'Tartas',
+        categoriaId: '11',
         titulo: 'Lemon pie mediano',
         variedad: [],
         precio: '700',
@@ -161,6 +177,7 @@ export const Productos = [{
     {
         id: '17',
         categoria: 'Tartas',
+        categoriaId: '11',
         titulo: 'Lemon Pie Chico',
         variedad: [],
         precio: '500',
@@ -171,6 +188,7 @@ export const Productos = [{
     {
         id: '18',
         categoria: 'Pastas Frescas',
+        categoriaId: '12',
         titulo: 'Ravioles',
         variedad: ['Verdura', 'Calabaza', 'Soja, Champiñon y Tofu'],
         precio: '280',
@@ -181,6 +199,7 @@ export const Productos = [{
     {
         id: '19',
         categoria: 'Pastas Frescas',
+        categoriaId: '12',
         titulo: 'Ñoquis',
         variedad: ['Doble Espinaca', 'A la Romana'],
         precio: '350',
@@ -191,6 +210,7 @@ export const Productos = [{
     {
         id: '20',
         categoria: 'Pastas Frescas',
+        categoriaId: '12',
         titulo: 'Sorrentinos',
         variedad: ['Tofu y Nueces', 'Tofu y Puerro'],
         precio: '350',

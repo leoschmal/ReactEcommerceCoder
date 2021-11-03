@@ -14,7 +14,7 @@ function App() {
             <header className="App-header">
               <div className="contenedorHeader">
                 <p className="titulo">
-                  Bienvenido a la Tienda Virtual de Productos Veganos
+                  Tienda Virtual de Productos Veganos
                 </p>
               </div>
             </header>
@@ -24,6 +24,7 @@ function App() {
           </Route>
           <Route exact path="/categorias">
             <h2>Seccion Categorías</h2>
+
           </Route>
           <Route exact path="/contacto">
             <h2>Seccion Contacto</h2>

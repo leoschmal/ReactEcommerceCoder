@@ -49,7 +49,7 @@ export const ItemDetail = ({ items }) => {
             <div className="itemList">
               {filtrados.length !== 0 ? (
                 filtrados.map((relacionado, index) => (
-                  <div key={index} className="">
+                  <div key={index}>
                     <Item item={relacionado} />
                   </div>
                 ))

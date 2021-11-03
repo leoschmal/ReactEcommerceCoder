@@ -24,6 +24,7 @@
     text-align: center;
     object-fit: cover;
     transition: all 2s ease-out;
+    border-radius: 0.5rem;
 }
 .imgDetail:hover{
     transform:scale(1.5,1.5);
