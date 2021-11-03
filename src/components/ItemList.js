@@ -6,12 +6,7 @@ import './ItemList.css'
 
 export const ItemList = ()=>{
 
-    const [products, setProducts] = useState([]);
-
-    // const categorias = Productos.map((cate)=>{
-    //     return cate.categoria;
-    // })
-    //const uniqueCat= [...new Set(categorias)]    
+    const [products, setProducts] = useState([]); 
 
     useEffect(()=>{
         function carga () {new Promise((resolve, reject)=>{
@@ -28,7 +23,7 @@ export const ItemList = ()=>{
     return(
         <div className="itemList">
         {products !== [] ? products.map((product, index) => (            
-            <div key={index} className="">
+            <div key={index}>
                 <Item item = {product} />                
             </div>)) : <div>Cargando Productosss....</div>}
         </div>                      

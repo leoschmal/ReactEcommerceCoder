@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ItemListContainer } from "./components/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
+import {CategoryContainer} from './components/CategoryContainer';
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -23,8 +24,7 @@ function App() {
             <ItemListContainer />
           </Route>
           <Route exact path="/categorias">
-            <h2>Seccion Categorías</h2>
-
+              <CategoryContainer />
           </Route>
           <Route exact path="/contacto">
             <h2>Seccion Contacto</h2>
