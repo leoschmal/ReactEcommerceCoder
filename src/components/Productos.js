@@ -1,7 +1,7 @@
 export const Productos = [{
         id: '01',
         categoria: 'Cereales',
-        categoriaId: '01',
+        categoriaId: '1',
         titulo: 'Cereales',
         variedad: [],
         precio: '333',
@@ -12,7 +12,7 @@ export const Productos = [{
     {
         id: '02',
         categoria: 'Frutas',
-        categoriaId: '02',
+        categoriaId: '2',
         titulo: 'Frutos Rojos',
         variedad: [],
         precio: '555',
@@ -23,7 +23,7 @@ export const Productos = [{
     {
         id: '03',
         categoria: 'Mixes',
-        categoriaId: '03',
+        categoriaId: '3',
         titulo: 'Mix Nutritivo',
         variedad: [],
         precio: '666',
@@ -34,7 +34,7 @@ export const Productos = [{
     {
         id: '04',
         categoria: 'Semillas',
-        categoriaId: '04',
+        categoriaId: '4',
         titulo: 'Semillas',
         variedad: [],
         precio: '999',
@@ -45,7 +45,7 @@ export const Productos = [{
     {
         id: '05',
         categoria: 'Milanesas, Bifecitos y Medallones',
-        categoriaId: '05',
+        categoriaId: '5',
         titulo: 'Bifecitos de Seitán Condimentados',
         variedad: [],
         precio: '320',
@@ -56,7 +56,7 @@ export const Productos = [{
     {
         id: '06',
         categoria: 'Embutidos',
-        categoriaId: '06',
+        categoriaId: '6',
         titulo: 'Salamín vegetal- 100g',
         variedad: [],
         precio: '180',
@@ -67,7 +67,7 @@ export const Productos = [{
     {
         id: '07',
         categoria: 'Embutidos',
-        categoriaId: '06',
+        categoriaId: '6',
         titulo: 'Longaniza Vegetal - 200g',
         variedad: [],
         precio: '240',
@@ -78,7 +78,7 @@ export const Productos = [{
     {
         id: '08',
         categoria: 'Matambres',
-        categoriaId: '07',
+        categoriaId: '7',
         titulo: 'Matambre Arrollado de Seitán - 500 g',
         variedad: [],
         precio: '380',
@@ -89,7 +89,7 @@ export const Productos = [{
     {
         id: '09',
         categoria: 'Matambres',
-        categoriaId: '07',
+        categoriaId: '7',
         titulo: 'Matambre Parrillero de Seitán - 500 g',
         variedad: [],
         precio: '320',
@@ -100,7 +100,7 @@ export const Productos = [{
     {
         id: '10',
         categoria: 'Quesos Veganos',
-        categoriaId: '08',
+        categoriaId: '8',
         titulo: 'Provoleta - 200 grs',
         variedad: [],
         precio: '290',
@@ -111,7 +111,7 @@ export const Productos = [{
     {
         id: '11',
         categoria: 'Quesos Veganos',
-        categoriaId: '08',
+        categoriaId: '8',
         titulo: 'Vegancream',
         variedad: [],
         precio: '240',
@@ -122,7 +122,7 @@ export const Productos = [{
     {
         id: '12',
         categoria: 'Embutidos',
-        categoriaId: '06',
+        categoriaId: '6',
         titulo: 'Chorizos Bombón - Bandeja de 1/2 docena',
         variedad: [],
         precio: '240',
@@ -133,7 +133,7 @@ export const Productos = [{
     {
         id: '13',
         categoria: 'Budines',
-        categoriaId: '09',
+        categoriaId: '9',
         titulo: 'Budines',
         variedad: ['Chocolate con Chips', 'Banana y Nuez con Crumble', 'Limón y Semillas de Amapola', 'Vainilla Crocante'],
         precio: '320',
