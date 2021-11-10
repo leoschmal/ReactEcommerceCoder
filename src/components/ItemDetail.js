@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ItemDetail.css";
 import { ItemCount } from "./ItemCount";
 import { Productos } from "./Productos";
@@ -24,7 +24,10 @@ export const ItemDetail = ({ items }) => {
     setCnt(data);
     setFlag(false);
     }
-
+    useEffect(()=>{
+        setCnt(0);
+        setFlag(true);
+    }, [itemIde]);
 
   return (
     <>
