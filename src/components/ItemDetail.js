@@ -23,8 +23,7 @@ export const ItemDetail = ({ items }) => {
   function cantidad(data){
     setCnt(data);
     setFlag(false);
-    console.log(data);
-  }
+    }
 
 
   return (
