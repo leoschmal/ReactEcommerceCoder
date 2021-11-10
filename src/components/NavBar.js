@@ -8,7 +8,7 @@ class NavBar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navBarItems">
-        <div className="container-fluid ">
+        <div className="container-fluid">
           <h1 className="navBarLogo">
             <Link to={"/"}> byVEGAN </Link>
           </h1>
@@ -23,7 +23,7 @@ class NavBar extends Component {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center"> 
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav listItems">
               {menuItems.map((item, index) => {
@@ -37,9 +37,8 @@ class NavBar extends Component {
               })}
             </ul>
           </div>
-          <CartWidget />
-          </div>
-          
+          <Link  to={'/cart'}> <CartWidget /> </Link>
+          </div>          
         </div>
       </nav>
     );

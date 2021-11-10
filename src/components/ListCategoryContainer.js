@@ -8,8 +8,7 @@ export const ListCategoryContainer = ({items})=>{
     const { catIde } = useParams();
 
     const categoria = items.filter((producto) => ((producto.categoriaId === catIde)));
-    const titlee = items.find((producto)=> producto.categoriaId === catIde);
-    console.log(titlee);
+    const titlee = items.find((producto)=> producto.categoriaId === catIde);  
         
     return(
         <div>

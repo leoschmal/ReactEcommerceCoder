@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
+import { useState } from "react";
 import "./ItemDetail.css";
 import { ItemCount } from "./ItemCount";
 import { Productos } from "./Productos";
@@ -13,11 +14,18 @@ export const ItemDetail = ({ items }) => {
   });
 
   const { itemIde } = useParams();
-
   const item = items.find((item) => item.id === itemIde);
-
   const filtrados = Productos.filter((producto) => ((producto.categoria === item.categoria) & (producto.id !== itemIde)));
   
+  const [cnt, setCnt]= useState(0);
+  const [flag, setFlag]= useState(true);
+
+  function cantidad(data){
+    setCnt(data);
+    setFlag(false);
+    console.log(data);
+  }
+
 
   return (
     <>
@@ -38,8 +46,8 @@ export const ItemDetail = ({ items }) => {
             <p>variedad unica</p>
           )}
           <p>Descripción: {item.descripcion}</p>
-          <ItemCount inicial={item.stock} />
-          <button className="btn btn-info m-3">Ver Carrito</button>
+          {flag ? <ItemCount inicial={item.stock} compra={cantidad}/> : <p><strong>Agregó {cnt} productos</strong></p>}
+          <button className="btn btn-info m-3"><Link to={'/cart'}>Ver Carrito </Link></button>
           <button className="btn btn-info m-3"> <Link to={'/list'}> Volver</Link></button>
         </div>
         

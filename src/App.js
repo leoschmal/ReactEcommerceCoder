@@ -5,11 +5,15 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import {CategoryContainer} from './components/CategoryContainer';
 import {ListCategoryContainer} from './components/ListCategoryContainer';
 import {Productos} from './components/Productos';
+import {CartProvider} from './contexts/CartContext';
+import { Cart } from './components/Cart';
 import NavBar from "./components/NavBar";
 
 function App() {
+  
   return (
     <BrowserRouter>
+    <CartProvider>
       <div className="App">
         <NavBar />
         <Switch>
@@ -40,8 +44,12 @@ function App() {
           <Route exact path="/categorias/:catIde">
             <ListCategoryContainer items={Productos} />
           </Route>
+          <Route exact path="/cart">
+            <Cart/>
+          </Route>
         </Switch>
       </div>
+      </CartProvider>
     </BrowserRouter>
   );
 }
