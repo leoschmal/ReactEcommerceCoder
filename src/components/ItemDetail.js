@@ -1,17 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./ItemDetail.css";
 import { ItemCount } from "./ItemCount";
 import { Productos } from "./Productos";
 import { Item } from "./Item";
+import { CartContext } from "../contexts/CartContext";
 
 export const ItemDetail = ({ items }) => {
   let pesosArg = Intl.NumberFormat("ar-AR", {
     style: "currency",
     currency: "ARG",
   });
+  const {cart, addItem, isInCart} = useContext(CartContext);
 
   const { itemIde } = useParams();
   const item = items.find((item) => item.id === itemIde);
@@ -23,7 +25,23 @@ export const ItemDetail = ({ items }) => {
   function cantidad(data){
     setCnt(data);
     setFlag(false);
+    
+    const product ={
+      qty : data,
+      id : item.id,
+      nombre : item.titulo,
+      precio : item.precio
     }
+    if(!isInCart(item)){
+      addItem({product}, item);
+    }
+    else{
+      console.log('jaja')
+    }
+
+    }
+
+
     useEffect(()=>{
         setCnt(0);
         setFlag(true);

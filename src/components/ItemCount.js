@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+
 import './ItemCount.css'
 
 export const ItemCount = ({inicial, compra}) => {
+  
+  
   let stockInicial = Number(inicial);
 
 
@@ -24,7 +27,7 @@ export const ItemCount = ({inicial, compra}) => {
   };
 
   const onChange = ()=>{
-    compra(contador);
+    compra(contador);    
   }
 
   return (
