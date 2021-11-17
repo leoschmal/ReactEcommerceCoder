@@ -1,0 +1,9 @@
+.cartProduct{
+    display: block;
+}
+.product{
+    display:flex;
+}
+.product p {
+    width: 15rem;;
+}

@@ -18,10 +18,12 @@ export const CartProvider =({children})=>{
 
     const removeItem = (id)=>{        
         cart.splice(id,1);
+        console.log('banana');
     }
 
     const clearCart = ()=>{        
         setCart([]);
+        console.log('manzana');
     }   
 
     const isInCart = (item)=>{

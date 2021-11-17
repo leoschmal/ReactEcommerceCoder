@@ -13,7 +13,7 @@ export const ItemDetail = ({ items }) => {
     style: "currency",
     currency: "ARG",
   });
-  const {cart, addItem, isInCart} = useContext(CartContext);
+  const {addItem, isInCart} = useContext(CartContext);
 
   const { itemIde } = useParams();
   const item = items.find((item) => item.id === itemIde);
@@ -36,7 +36,8 @@ export const ItemDetail = ({ items }) => {
       addItem({product}, item);
     }
     else{
-      console.log('jaja')
+      console.log('jaja');
+      
     }
 
     }
