@@ -2,6 +2,7 @@ import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";
 import "./Cart.css";
 
+
 export const Cart = ()=>{
     let pesosArg = Intl.NumberFormat("ar-AR", {
         style: "currency",
@@ -10,17 +11,12 @@ export const Cart = ()=>{
 
     const {cart, clearCart, removeItem} = useContext(CartContext);
     
-    
+    //aca usar useState y context
     let total = 0;
     let productos =0;
     cart.forEach(function(a){total += parseInt(a.product.precio)*a.product.qty;});
     cart.forEach(function(a){productos += parseInt(a.product.qty);});
-    console.log(total);
-    console.log(productos);
-    console.log('cant', cart.length);
     
-
-
     return(
         <>
         {/* <pre>
@@ -32,7 +28,7 @@ export const Cart = ()=>{
                     <p>Producto </p>
                     <p>Cant.</p>
                     <p>Precio U</p>
-                    <p>Total</p>
+                    <p>Subtotal</p>
                     <p> id</p>
             </div>
         {cart !== [] ? cart.map((producto, index) => (            
@@ -43,10 +39,10 @@ export const Cart = ()=>{
                     <p>  ${pesosArg.format(producto.product.precio)}</p>
                     <p>{producto.product.precio * producto.product.qty}</p>
                     <p>  {producto.product.id}</p>
-                    <button onClick={removeItem(producto.product.id)}>Eliminar</button>                
+                    <button onClick={()=>removeItem(producto.index)}>Eliminar</button>                
                 </div>                
             </div>)) : <div>El carrito está vacío</div>}
-            <div>Total Compra: {total}               
+            <div>Total Compra: ${pesosArg.format(total)}               
             </div>
         {cart!== [] ? <><button onClick={clearCart}>Limpiar Carro</button><button>Terminar Compra</button></>: <p>na pa borrar</p>}
         </div>   

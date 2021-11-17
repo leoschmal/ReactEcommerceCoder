@@ -7,23 +7,21 @@ export const CartProvider =({children})=>{
 
     const addItem = (items, item)=>{
         if(isInCart(item)){  
-            console.log('yaexissste');
-            
+            console.log('yaexissste');                     
         }
         else{
-            console.log('agregando');
             setCart([...cart,items]);
         }              
     }
 
-    const removeItem = (id)=>{        
-        cart.splice(id,1);
-        console.log('banana');
+    function  removeItem (id) {        
+        const aux = Array.from(cart);
+        aux.splice(id, 1);              
+        setCart(aux);
     }
 
     const clearCart = ()=>{        
-        setCart([]);
-        console.log('manzana');
+        setCart([]);        
     }   
 
     const isInCart = (item)=>{
