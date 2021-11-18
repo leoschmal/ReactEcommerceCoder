@@ -13,7 +13,7 @@ export const ItemDetail = ({ items }) => {
     style: "currency",
     currency: "ARG",
   });
-  const { cart, addItem, isInCart } = useContext(CartContext);
+  const { addItem } = useContext(CartContext);
 
   const { itemIde } = useParams();
   const item = items.find((item) => item.id === itemIde);
@@ -22,6 +22,7 @@ export const ItemDetail = ({ items }) => {
       (producto.categoria === item.categoria) & (producto.id !== itemIde)
   );
 
+  
   const [cnt, setCnt] = useState(0);
   const [flag, setFlag] = useState(true);
 
@@ -35,16 +36,8 @@ export const ItemDetail = ({ items }) => {
       nombre: item.titulo,
       precio: item.precio,
     };
-    if (!isInCart(item)) {
-      addItem({ product }, item);
-    } else {
-      console.log("existe en carro");
-      cart.forEach(function (a) {
-        if (a.product.id === item.id) {          
-          a.product.qty += parseInt(item.qty);
-        }
-      });
-    }
+
+    addItem({ product }, item);
   }
 
   useEffect(() => {

@@ -7,10 +7,16 @@ export const CartProvider =({children})=>{
 
     const addItem = (items, item)=>{
         if(isInCart(item)){  
-            console.log('yaexissste');                     
+            cart.forEach(function(a){
+                if (a.product.id === items.product.id) {
+                    a.product.qty = a.product.qty + items.product.qty;
+                }
+            });
+                               
         }
         else{
             setCart([...cart,items]);
+            console.log('agregue nuevo');
         }              
     }
 
