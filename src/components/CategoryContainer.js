@@ -1,9 +1,29 @@
-import {Productos } from './Productos';
+//import {Productos } from './Productos';
 import { Link } from 'react-router-dom';
+import {    
+    collection,
+    query,    
+    getDocs,
+  } from "firebase/firestore";
+  import { getFirestore } from "../firebase/index";
+  import { useEffect , useState} from 'react';
 
 
-export const CategoryContainer = ({items})=>{
-    const categorias = Productos.map((cate)=>{
+export const CategoryContainer = ()=>{
+
+    const [productos, setProductos]= useState([]);
+
+    useEffect(()=>{
+        const db = getFirestore();
+        const q = query(collection(db, "productos"));
+        getDocs(q).then((snapshots)=>{
+            if(!snapshots.empty){          
+                setProductos(snapshots.docs.map((doc) => doc.data()))};
+        })
+
+    },[]);
+
+    const categorias = productos.map((cate)=>{
     return cate.categoria;
     })
     const uniqueCat= [...new Set(categorias)]  

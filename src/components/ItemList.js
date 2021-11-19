@@ -1,33 +1,31 @@
-import React, { useState , useEffect} from "react";
-import {Item} from './Item';
-//import {Productos} from './Productos'
-import './ItemList.css'
+import React, { useState, useEffect } from "react";
+import { Item } from "./Item";
 
+import "./ItemList.css";
+import { collection, getDocs } from "firebase/firestore";
+import { getFirestore } from "../firebase/index";
 
-export const ItemList = ({items})=>{
-    
-    const [products, setProducts] = useState([]); 
+export const ItemList = () => {
+  const [products, setProducts] = useState([]);
 
-    useEffect(()=>{
-        function carga () {new Promise((resolve, reject)=>{
-            setTimeout(() => {
-                resolve(items);
-            }, 2000)
-        })
-        .then((resolve) => setProducts(resolve))
-        .catch((err)=>alert(err));}
-        carga();            
-    }, [items]);
+  useEffect(() => {
+    const db = getFirestore();
+    getDocs(collection(db, "productos")).then((snapshot) => {
+      setProducts(snapshot.docs.map((doc) => doc.data()));
+    });
+  }, []);
 
-
-    return(
-        <div className="itemList">
-        {products !== [] ? products.map((product, index) => (            
-            <div key={index}>
-                <Item item = {product} />                
-            </div>)) : <div>Cargando Productosss....</div>}
-        </div>                      
-        )     
-}
-
-
+  return (
+    <div className="itemList">
+      {products !== [] ? (
+        products.map((product, index) => (
+          <div key={index}>
+            <Item item={product} />
+          </div>
+        ))
+      ) : (
+        <div>Cargando Productosss....</div>
+      )}
+    </div>
+  );
+};
