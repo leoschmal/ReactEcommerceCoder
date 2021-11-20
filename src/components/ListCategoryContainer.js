@@ -16,15 +16,11 @@ export const ListCategoryContainer = ()=>{
 
     useEffect(()=>{
         const db = getFirestore();
-        const q = query(collection(db, "productos"), where("categoriaId","==", catIde)); 
-        console.log(catIde);       
-        getDocs(q).then((snapshots)=>{ 
-            console.log(snapshots.docs.map((doc) => doc.data()));            
-            if(!snapshots.empty){   
-                      
+        const q = query(collection(db, "productos"), where("categoriaId","==", catIde));               
+        getDocs(q).then((snapshots)=>{                        
+            if(!snapshots.empty){                      
                 setProducts(snapshots.docs.map((doc) => doc.data()))};                
         })
-
     },[catIde]);
       
     return(

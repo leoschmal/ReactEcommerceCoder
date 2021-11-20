@@ -23,12 +23,12 @@ export const CategoryContainer = ()=>{
     },[]);
 
     let ee = [];
-    const categorias= productos.map((cate)=>{ 
+    productos.map((cate)=>{ 
         ee.push( {
             id:cate.categoriaId,
             categoria:cate.categoria            
-         });       
-        return cate.categoria;
+         });
+        return ee;   
     })    
     let set = new Set( ee.map( JSON.stringify ) )
     let unique = Array.from( set ).map( JSON.parse );     
