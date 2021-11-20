@@ -1,4 +1,5 @@
 import { CartContext } from "../contexts/CartContext";
+import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import "./Cart.css";
 import { getFirestore } from "../firebase/index";
@@ -13,6 +14,9 @@ export const Cart = () => {
   });
 
   const [flagCompra, setFlagCompra]=useState(false);
+  const [success, setSucces]=useState(false);
+  const [codigo, setCodigo]=useState();
+
   const { cart, clearCart, removeItem } = useContext(CartContext);
   //const [order, setOrder] = useState({});
   const cambiar = ()=>{
@@ -55,18 +59,21 @@ export const Cart = () => {
         //date: firebase.firestore.Timestamp.fromDate(new Date()),
         total: total,
       };
-      addDoc(orders, newOrder);
+      addDoc(orders, newOrder).then(({id})=>{
+        setCodigo(id);
+      });
       }
 
   function buy() {    
-    crearOrden();
-    console.log(usuario);
+    crearOrden();    
+    clearCart();
+    setSucces(true);
   }
 
 
   return (
     <>
-      {!flagCompra && <div className="cartProduct">
+      {!flagCompra && !success && <div className="cartProduct">
         <div className="product fw-bold">
           <p> Producto </p> <p> Cant. </p> <p> Precio U </p> <p> Subtotal </p>
           <p> id </p>{" "}
@@ -100,7 +107,7 @@ export const Cart = () => {
         )}
       </div>}
 
-      {flagCompra && <div className="container-fluid">
+      {flagCompra && !success && <div className="container-fluid">
         <h2>Confirmación de Compra</h2>
         <form>
         <div className="input-group mb-3 mt-3">  
@@ -179,6 +186,13 @@ export const Cart = () => {
             </div>
         </form>
       </div>}
+      {success && <div>
+        <h2>Compra realizada con Éxito</h2>
+        <h3>{usuario.nombre}:</h3>
+        <p>Su compra se registró correctamente con el código de órden:</p>
+        <p><strong>{codigo}</strong></p>
+        <button className="btn btn-info"><Link to={"/"}> Volver al Home </Link></button>
+        </div>}
     </>
   );
 };
