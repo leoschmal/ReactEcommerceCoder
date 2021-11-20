@@ -1,14 +1,14 @@
-import {ItemList} from './ItemList';
+//import {CategoryProducts} from './CategoryProducts';
 import { useParams } from "react-router";
 import {useState, useEffect} from "react";
+import {Item} from "./Item";
 import {
     collection,
-    query,
-    where,
+    query,    
     getDocs,
+    where
   } from "firebase/firestore";
   import { getFirestore } from "../firebase/index";
-
 
 export const ListCategoryContainer = ()=>{
     const { catIde } = useParams();
@@ -16,24 +16,29 @@ export const ListCategoryContainer = ()=>{
 
     useEffect(()=>{
         const db = getFirestore();
-        const q = query(collection(db, "productos"));
-        console.log('catIde', catIde);
-        getDocs(q).then((snapshots)=>{            
-            if(!snapshots.empty){          
-                setProducts(snapshots.docs.map((doc) => doc.data()))};
-                console.log('products filter', products);
+        const q = query(collection(db, "productos"), where("categoriaId","==", catIde)); 
+        console.log(catIde);       
+        getDocs(q).then((snapshots)=>{ 
+            console.log(snapshots.docs.map((doc) => doc.data()));            
+            if(!snapshots.empty){   
+                      
+                setProducts(snapshots.docs.map((doc) => doc.data()))};                
         })
 
     },[catIde]);
-
       
     return(
-        <div>
-            <h2>Categoria</h2>
-            <div className="listContainer">
-                <ItemList />
+        <div className="itemList">
+        {products !== [] ? (
+          products.map((product, index) => (
+            <div key={index}>
+              <Item item={product} />
             </div>
-        </div>
+          ))
+        ) : (
+          <div>Cargando Productosss....</div>
+        )}
+      </div>
         )
 
 }

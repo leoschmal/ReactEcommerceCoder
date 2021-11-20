@@ -4,15 +4,11 @@ import { useParams } from "react-router";
 import { useState, useEffect, useContext } from "react";
 import "./ItemDetail.css";
 import { ItemCount } from "./ItemCount";
-import { Item } from "./Item";
+//import { Item } from "./Item";
 import { CartContext } from "../contexts/CartContext";
 import {
   doc,
-  getDoc,
-  collection,
-  query,
-  where,
-  getDocs,
+  getDoc, 
 } from "firebase/firestore";
 import { getFirestore } from "../firebase/index";
 
@@ -25,7 +21,7 @@ export const ItemDetail = () => {
   const { itemIde } = useParams();
 
   const [item, setItem] = useState();
-  const [filtrados, setFiltrados] = useState([]);
+  //const [filtrados, setFiltrados] = useState([]);
 
   const [cnt, setCnt] = useState(0);
   const [flag, setFlag] = useState(true);
@@ -40,7 +36,6 @@ export const ItemDetail = () => {
       nombre: item.titulo,
       precio: item.precio,
     };
-
     addItem({ product }, item);
   }
 
@@ -52,18 +47,10 @@ export const ItemDetail = () => {
     const prodRef = doc(db, "productos", itemIde);
     getDoc(prodRef).then((snapshot) => {
       if (snapshot.exists()) {        
-        setItem(snapshot.data());  
-        console.log('item', item);              
+        setItem(snapshot.data());                
       }
-    }).then(()=>{
-        const q = query(collection(db, "productos"), where("categoria","==", item.categoria));
-        getDocs(q).then((snapshots) => {
-          if(!snapshots.empty){          
-            setFiltrados(snapshots.docs.map((doc) => doc.data()))};
-        });
-      });   
-
-  }, [itemIde]);
+    })
+   }, [itemIde]);
 
   return (
     <>
@@ -101,7 +88,7 @@ export const ItemDetail = () => {
               <Link to={"/list"}> Volver</Link>
             </button>
           </div> 
-         { filtrados && (
+         {/* { filtrados && (
           <div className="relacionados">
             <h2>Productos Relacionados</h2>
             <div>
@@ -117,7 +104,7 @@ export const ItemDetail = () => {
                 )}
               </div>
             </div>
-          </div>)}
+          </div>)} */}
         </div>
       )}
     </>

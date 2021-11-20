@@ -1,4 +1,3 @@
-//import {Productos } from './Productos';
 import { Link } from 'react-router-dom';
 import {    
     collection,
@@ -8,10 +7,10 @@ import {
   import { getFirestore } from "../firebase/index";
   import { useEffect , useState} from 'react';
 
-
 export const CategoryContainer = ()=>{
 
     const [productos, setProductos]= useState([]);
+
 
     useEffect(()=>{
         const db = getFirestore();
@@ -23,16 +22,21 @@ export const CategoryContainer = ()=>{
 
     },[]);
 
-    const categorias = productos.map((cate)=>{
-    return cate.categoria;
-    })
-    const uniqueCat= [...new Set(categorias)]  
-
+    let ee = [];
+    const categorias= productos.map((cate)=>{ 
+        ee.push( {
+            id:cate.categoriaId,
+            categoria:cate.categoria            
+         });       
+        return cate.categoria;
+    })    
+    let set = new Set( ee.map( JSON.stringify ) )
+    let unique = Array.from( set ).map( JSON.parse );     
     return(
         <div>
-            {uniqueCat.map((cat, index)=>(                
+            {unique.map((cat, index)=>(                
                     <div key={index}>
-                        <Link to={"/categorias/" + parseInt(index + 1)}> <p>{cat}</p></Link>
+                        <Link to={"/categorias/" + parseInt(cat.id)}> <p>{cat.categoria}</p></Link>
                     </div>))}
                         </div>
         )}
