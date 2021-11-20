@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Item } from "./Item";
-
 import "./ItemList.css";
 import { collection, getDocs } from "firebase/firestore";
 import { getFirestore } from "../firebase/index";
