@@ -13,15 +13,5 @@ export const menuItems =[
         titulo: 'Categorías',
         link: '/categorias',
         cName:'navLinks'
-    },
-    {
-        titulo: 'Contacto',
-        link: '/contacto',
-        cName:''
-    },
-    {
-        titulo: 'Login',
-        link: '/login',
-        cName:'navLinks'
     }
 ]

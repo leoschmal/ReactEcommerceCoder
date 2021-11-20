@@ -172,7 +172,7 @@ export const Cart = () => {
                   </div>
                   <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
-                    <button type="button" className="btn btn-primary" onClick={buy}>Confirmar</button>
+                    <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={buy}>Confirmar</button>
                   </div>
                 </div>
               </div>

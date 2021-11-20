@@ -1,4 +1,5 @@
 import "./App.css";
+import { Link } from "react-router-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ItemListContainer } from "./components/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
@@ -22,6 +23,7 @@ function App() {
                 <p className="titulo">
                   Tienda Virtual de Productos Veganos
                 </p>
+                <button className="btn btn-info boton"> <Link to={"/list"}> Ir a Productos </Link></button>
               </div>
             </header>
           </Route>
