@@ -13,7 +13,7 @@ class NavBar extends Component {
             <Link to={"/"}> byVEGAN </Link>
           </h1>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler menuIcon"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -21,7 +21,7 @@ class NavBar extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon menuIcon"><img src="https://img.icons8.com/ios/50/000000/plus--v1.png" atl="más"></img></span>
           </button>
           <div className="d-flex justify-content-center"> 
           <div className="collapse navbar-collapse" id="navbarNav">

@@ -87,7 +87,7 @@ export const Cart = () => {
                 <p> $ {pesosArg.format(producto.product.precio)} </p>
                 <p> {producto.product.precio * producto.product.qty} </p>
                 <p> {producto.product.id} </p>
-                <button className="btn btn-danger" onClick={() => removeItem(producto.index)}>
+                <button className="btn btn-danger btnDel" onClick={() => removeItem(index)}>
                   x
                 </button>
               </div>
