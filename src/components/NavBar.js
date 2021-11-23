@@ -21,7 +21,7 @@ class NavBar extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon menuIcon"><img src="https://img.icons8.com/ios/50/000000/plus--v1.png" atl="más"></img></span>
+            <span className="navbar-toggler-icon menuIcon"><img src="https://img.icons8.com/ios/50/000000/plus--v1.png" alt="más"></img></span>
           </button>
           <div className="d-flex justify-content-center"> 
           <div className="collapse navbar-collapse" id="navbarNav">
