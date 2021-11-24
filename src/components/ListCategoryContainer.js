@@ -25,15 +25,12 @@ export const ListCategoryContainer = ()=>{
       
     return(
         <div className="itemList">
-        {products !== [] ? (
-          products.map((product, index) => (
+        {products.map((product, index) => (
             <div key={index}>
               <Item item={product} />
             </div>
-          ))
-        ) : (
-          <div>Cargando Productosss....</div>
-        )}
+            ))         
+        }
       </div>
         )
 

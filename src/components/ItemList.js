@@ -16,14 +16,14 @@ export const ItemList = () => {
 
   return (
     <div className="itemList">
-      {products !== [] ? (
+      {products.length !== 0 ? (
         products.map((product, index) => (
           <div key={index}>
             <Item item={product} />
           </div>
         ))
       ) : (
-        <div>Cargando Productosss....</div>
+        <div><h2>Cargando Productos.</h2></div>
       )}
     </div>
   );

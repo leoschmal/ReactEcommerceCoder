@@ -42,6 +42,7 @@ export const Cart = () => {
   const handleObs = (e) => setObs(e.target.value);
 
   function verif(mail, nombre, apellido, tel, obs) {
+    if(mail!=='' && nombre !== ''  && tel !== ''){
     setUsuario({
       nombre: nombre,
       apellido: apellido,
@@ -49,6 +50,10 @@ export const Cart = () => {
       tel: tel,
       obs: obs,
     });}
+    else{
+      alert('Complete los campos obligatorios')
+    }
+  }
 
     function crearOrden() {
       const db = getFirestore();
@@ -78,7 +83,7 @@ export const Cart = () => {
       {(!flagCompra && !success && cart.length !== 0) ? <div className="cartProduct">
         <div className="product fw-bold m-3">
           <p> Producto </p> <p> Cant. </p> <p> Precio U </p> <p> Subtotal </p>
-          <p> id </p> <p>Elim.</p>
+          <p> id </p>
         </div>
         {cart !== [] ? (
           cart.map((producto, index) => (
@@ -90,7 +95,7 @@ export const Cart = () => {
                 <p> {producto.product.precio * producto.product.qty} </p>
                 <p> {producto.product.id} </p>
                 <button className="btn btn-danger btnDel" onClick={() => removeItem(index)}>
-                  <img src={Trash} className="trash"></img>
+                  <img src={Trash} className="trash" alt="trash"></img>
                 </button>
               </div>
             </div>
@@ -141,7 +146,8 @@ export const Cart = () => {
             placeholder="Email"
             onChange={handleMail}
             value={mail}
-            className="form-control"></input>
+            className="form-control"
+            required></input>
         </div>            
 
         <div className="input-group">
