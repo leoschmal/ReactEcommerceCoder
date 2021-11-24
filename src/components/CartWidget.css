@@ -1,5 +1,17 @@
 .containerWidget{
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-end;
+}
+img{
+    width:3rem;
+}
+.cartContent{
+    background-color: var(--dark-salmon);
+    border-radius: 50%;
+    width:2rem;
+    height:2rem;
+    font-size:1.5rem;
+    font-weight:bold;
+    color: white;
 }

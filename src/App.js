@@ -7,6 +7,7 @@ import {CategoryContainer} from './components/CategoryContainer';
 import {ListCategoryContainer} from './components/ListCategoryContainer';
 import {CartProvider} from './contexts/CartContext';
 import { Cart } from './components/Cart';
+import {Footer} from './components/Footer'
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
             <Cart/>
           </Route>
         </Switch>
+        <Footer />
       </div>
       </CartProvider>
     </BrowserRouter>

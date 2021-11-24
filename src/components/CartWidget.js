@@ -7,7 +7,7 @@ export const CartWidget = ()=>{
     return(
         <div className="containerWidget">
             <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-cart-basic-ui-elements-flatart-icons-outline-flatarticons.png" alt="cart" />
-            {cart.length !== 0 && <h3>({cart.length})</h3> }
+            {cart.length !== 0 && <h3 className="cartContent">{cart.length}</h3> }
         </div>        
         )
 }

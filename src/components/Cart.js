@@ -6,6 +6,7 @@ import { getFirestore } from "../firebase/index";
 import "firebase/firestore";
 //import {firebase} from "firebase/app";
 import { collection , addDoc } from "firebase/firestore";
+import Trash from "../assets/trash.png";
 
 export const Cart = () => {
   let pesosArg = Intl.NumberFormat("ar-AR", {
@@ -73,11 +74,12 @@ export const Cart = () => {
 
   return (
     <>
-      {!flagCompra && !success && <div className="cartProduct">
-        <div className="product fw-bold">
+    
+      {(!flagCompra && !success && cart.length !== 0) ? <div className="cartProduct">
+        <div className="product fw-bold m-3">
           <p> Producto </p> <p> Cant. </p> <p> Precio U </p> <p> Subtotal </p>
-          <p> id </p>{" "}
-        </div>{" "}
+          <p> id </p> <p>Elim.</p>
+        </div>
         {cart !== [] ? (
           cart.map((producto, index) => (
             <div key={index}>
@@ -88,7 +90,7 @@ export const Cart = () => {
                 <p> {producto.product.precio * producto.product.qty} </p>
                 <p> {producto.product.id} </p>
                 <button className="btn btn-danger btnDel" onClick={() => removeItem(index)}>
-                  x
+                  <img src={Trash} className="trash"></img>
                 </button>
               </div>
             </div>
@@ -105,8 +107,9 @@ export const Cart = () => {
         ) : (
           <p> na pa borrar </p>
         )}
-      </div>}
-
+      </div> : <div><h1>El carro está vacio</h1>
+      <button className="btn btn-info m-3"><Link to={"/list"}>Ir a Productos</Link></button></div>}
+    
       {flagCompra && !success && <div className="container-fluid">
         <h2>Confirmación de Compra</h2>
         <form>
@@ -193,6 +196,7 @@ export const Cart = () => {
         <p><strong>{codigo}</strong></p>
         <button className="btn btn-info"><Link to={"/"}> Volver al Home </Link></button>
         </div>}
+        
     </>
   );
 };

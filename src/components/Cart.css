@@ -3,10 +3,24 @@
 }
 .product{
     display:flex;
+    justify-content: center;
+    align-items: center;
 }
 .product p {
-    width: 15rem;;
+    width: 15rem;
+    margin: 0rem;
+    gap:1rem;
 }
 .btnDel{
+    width:2.5rem;
     height:2rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-salmon);
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.trash{
+    width:2rem;
 }

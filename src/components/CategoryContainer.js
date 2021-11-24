@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import './CategoryContainer.css'
+//import Icon from "../assets/cereales.png";
 import {    
     collection,
     query,    
@@ -22,21 +24,22 @@ export const CategoryContainer = ()=>{
 
     },[]);
 
-    let ee = [];
+    let categories = [];
     productos.map((cate)=>{ 
-        ee.push( {
+        categories.push( {
             id:cate.categoriaId,
             categoria:cate.categoria            
          });
-        return ee;   
+        return categories;   
     })    
-    let set = new Set( ee.map( JSON.stringify ) )
+    let set = new Set( categories.map( JSON.stringify ) )
     let unique = Array.from( set ).map( JSON.parse );     
     return(
-        <div>
+        <div className="categoryContainer">
             {unique.map((cat, index)=>(                
-                    <div key={index}>
-                        <Link to={"/categorias/" + parseInt(cat.id)}> <p>{cat.categoria}</p></Link>
+                    <div key={index} className="categoryCard">
+                        <Link to={"/categorias/" + parseInt(cat.id)}> <p className="categoryTitle">{cat.categoria}</p></Link>
+                        <img src={process.env.PUBLIC_URL +"/"+ cat.id+".png"} alt="imggg"></img>
                     </div>))}
                         </div>
         )}
