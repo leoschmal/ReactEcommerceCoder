@@ -42,7 +42,12 @@ export const CategoryContainer = () => {
           </Link>          
         </div>
       ))
-      ):(<h2>Cargando Categorias</h2>)  
+      ):(<div> 
+            <h2>Cargando Categorias</h2>
+            <div className="spinner-grow" role="status">
+            <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>)  
         }
     </div>
   );

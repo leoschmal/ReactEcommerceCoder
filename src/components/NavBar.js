@@ -10,7 +10,7 @@ class NavBar extends Component {
       <nav className="navbar navbar-expand-lg navBarItems">
         <div className="container-fluid">
           <h1 className="navBarLogo">
-            <Link to={"/"}> by<span className="logoMark">VEGAN</span> </Link>
+            <Link to={"/"}> <span className="logoMark1">by</span><span className="logoMark">VEGAN</span> </Link>
           </h1>
           <button
             className="navbar-toggler menuIcon"

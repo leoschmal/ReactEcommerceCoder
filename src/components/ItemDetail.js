@@ -1,4 +1,5 @@
 import React from "react";
+import { Related } from "./Related";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import { useState, useEffect, useContext } from "react";
@@ -8,7 +9,7 @@ import { ItemCount } from "./ItemCount";
 import { CartContext } from "../contexts/CartContext";
 import {
   doc,
-  getDoc, 
+  getDoc  
 } from "firebase/firestore";
 import { getFirestore } from "../firebase/index";
 
@@ -21,10 +22,14 @@ export const ItemDetail = () => {
   const { itemIde } = useParams();
 
   const [item, setItem] = useState();
-  //const [filtrados, setFiltrados] = useState([]);
+  
+
 
   const [cnt, setCnt] = useState(0);
   const [flag, setFlag] = useState(true);
+  const [variedad, setVariedad] = useState('Unica');
+
+  const handleVariedad = (e) => setVariedad(e.target.value);
 
   function cantidad(data) {
     setCnt(data);
@@ -35,8 +40,9 @@ export const ItemDetail = () => {
       id: item.id,
       nombre: item.titulo,
       precio: item.precio,
+      variedad: variedad,
     };
-    addItem({ product }, item);
+    addItem({ product }, item);    
   }
 
   useEffect(() => {
@@ -62,18 +68,18 @@ export const ItemDetail = () => {
           <div className="dataContainer">
             <h4>{item.titulo}</h4>
             <p>
-              precio:<span> ${pesosArg.format(item.precio)}</span>
+              <span> ${pesosArg.format(item.precio)}</span>
             </p>
             {item.variedad.length !== 0 ? (
-              <select>
+              <select onChange={handleVariedad}>
                 {item.variedad.map((variedad, index) => (
-                  <option key={index}>{variedad}</option>
+                  <option key={index} >{variedad}</option>
                 ))}
               </select>
             ) : (
               <p>variedad unica</p>
             )}
-            <p>Descripción: {item.descripcion}</p>
+            <p>{item.descripcion}</p>
             {flag ? (
               <ItemCount inicial={item.stock} compra={cantidad} />
             ) : (
@@ -88,23 +94,7 @@ export const ItemDetail = () => {
               <Link to={"/list"}> Volver</Link>
             </button>
           </div> 
-         {/* { filtrados && (
-          <div className="relacionados">
-            <h2>Productos Relacionados</h2>
-            <div>
-              <div className="itemList">
-                {filtrados.length !== 0 ? (
-                  filtrados.map((relacionado, index) => (
-                    <div key={index}>
-                      <Item item={relacionado} />
-                    </div>
-                  ))
-                ) : (
-                  <div>No Existen Productos Relacionados</div>
-                )}
-              </div>
-            </div>
-          </div>)} */}
+          <Related item={item}/>         
         </div>
       )}
     </>

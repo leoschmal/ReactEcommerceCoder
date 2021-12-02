@@ -4,8 +4,7 @@ import { useContext, useState } from "react";
 import "./Cart.css";
 import { getFirestore } from "../firebase/index";
 import "firebase/firestore";
-//import {firebase} from "firebase/app";
-import { collection , addDoc } from "firebase/firestore";
+import { collection , addDoc , getDocs, doc, updateDoc, query, where} from "firebase/firestore";
 import Trash from "../assets/trash.png";
 
 export const Cart = () => {
@@ -19,7 +18,7 @@ export const Cart = () => {
   const [codigo, setCodigo]=useState();
 
   const { cart, clearCart, removeItem } = useContext(CartContext);
-  //const [order, setOrder] = useState({});
+  
   const cambiar = ()=>{
     setFlagCompra(!flagCompra);
   }
@@ -62,7 +61,7 @@ export const Cart = () => {
       const newOrder = {
         buyer: usuario,
         items: cart,
-        //date: firebase.firestore.Timestamp.fromDate(new Date()),
+        date: new Date(),
         total: total,
       };
       addDoc(orders, newOrder).then(({id})=>{
@@ -70,19 +69,37 @@ export const Cart = () => {
       });
       }
 
+  function actualizarStock(){    
+    const db = getFirestore();
+    cart.forEach((e)=>{      
+      const idRef = collection(db, "productos");
+      const q = query(idRef,  where("id", "==", e.product.id));
+      getDocs(q).then((snapshots)=>{        
+        const stockk = snapshots.docs.map((docc) => docc.data().stock);
+        var newStock = stockk - e.product.qty;        
+        const docRef = doc(db, "productos", e.product.id );
+        updateDoc(docRef, {stock: newStock});               
+      })      
+      })     
+  }    
+  
   function buy() {    
     crearOrden();    
     clearCart();
     setSucces(true);
+    actualizarStock();
   }
 
 
   return (
     <>
-    
-      {(!flagCompra && !success && cart.length !== 0) ? <div className="cartProduct">
+      {/*carro vacio*/}
+      {(!flagCompra && !success && cart.length === 0) && <div><h1>El carro está vacío</h1>
+      <button className="btn btn-info m-3"><Link to={"/list"}>Ir a Productos</Link></button></div>}      
+      {/* carro */}
+      {(!flagCompra && !success && cart.length !== 0) && <div className="cartProduct">
         <div className="product fw-bold m-3">
-          <p> Producto </p> <p> Cant. </p> <p> Precio U </p> <p> Subtotal </p>
+          <p> Producto </p><p>Variedad</p> <p> Cant. </p> <p> Precio U </p> <p> Subtotal </p>
           <p> id </p>
         </div>
         {cart !== [] ? (
@@ -90,6 +107,7 @@ export const Cart = () => {
             <div key={index}>
               <div className="product m-3">
                 <p> {producto.product.nombre} </p>
+                <p> {producto.product.variedad} </p>
                 <p> {producto.product.qty} </p>
                 <p> $ {pesosArg.format(producto.product.precio)} </p>
                 <p> {producto.product.precio * producto.product.qty} </p>
@@ -104,17 +122,15 @@ export const Cart = () => {
           <div> El carrito está vacío </div>
         )}
         <div className="fw-bold"> Total Compra: $ {pesosArg.format(total)} </div>
-        {cart !== [] ? (
+        {cart.lenght !== 0 && (
           <>            
             <button className="btn btn-success m-3" onClick={cambiar}> Terminar Compra </button>
             <button className="btn btn-info m-3" onClick={clearCart}> Limpiar Carro </button>
           </>
-        ) : (
-          <p> na pa borrar </p>
-        )}
-      </div> : <div><h1>El carro está vacio</h1>
-      <button className="btn btn-info m-3"><Link to={"/list"}>Ir a Productos</Link></button></div>}
-    
+        ) }
+      </div>}
+      
+      {/*Formulario -datos Comprador */}
       {flagCompra && !success && <div className="container-fluid">
         <h2>Confirmación de Compra</h2>
         <form>
@@ -199,7 +215,11 @@ export const Cart = () => {
         <h2>Compra realizada con Éxito</h2>
         <h3>{usuario.nombre}:</h3>
         <p>Su compra se registró correctamente con el código de órden:</p>
-        <p><strong>{codigo}</strong></p>
+        {codigo  ? <p><strong>{codigo}</strong></p> : <div>
+        <div className="spinner-grow" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+          </div>}
         <button className="btn btn-info"><Link to={"/"}> Volver al Home </Link></button>
         </div>}
         

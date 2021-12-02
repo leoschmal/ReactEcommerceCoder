@@ -23,7 +23,12 @@ export const ItemList = () => {
           </div>
         ))
       ) : (
-        <div><h2>Cargando Productos.</h2></div>
+        <div className="container d-flex justify-content-center">
+          <h3>Cargando Productos.</h3>
+          <div className="spinner-grow" role="status">
+          <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
       )}
     </div>
   );
