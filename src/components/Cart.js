@@ -97,35 +97,43 @@ export const Cart = () => {
       {(!flagCompra && !success && cart.length === 0) && <div><h1>El carro está vacío</h1>
       <button className="btn btn-info m-3"><Link to={"/list"}>Ir a Productos</Link></button></div>}      
       {/* carro */}
-      {(!flagCompra && !success && cart.length !== 0) && <div className="cartProduct">
-        <div className="product fw-bold m-3">
-          <p> Producto </p><p>Variedad</p> <p> Cant. </p> <p> Precio U </p> <p> Subtotal </p>
-          <p> id </p>
-        </div>
-        {cart !== [] ? (
-          cart.map((producto, index) => (
-            <div key={index}>
-              <div className="product m-3">
-                <p> {producto.product.nombre} </p>
-                <p> {producto.product.variedad} </p>
-                <p> {producto.product.qty} </p>
-                <p> $ {pesosArg.format(producto.product.precio)} </p>
-                <p> {producto.product.precio * producto.product.qty} </p>
-                <p> {producto.product.id} </p>
-                <button className="btn btn-danger btnDel" onClick={() => removeItem(index)}>
-                  <img src={Trash} className="trash" alt="trash"></img>
-                </button>
-              </div>
-            </div>
-          ))
-        ) : (
-          <div> El carrito está vacío </div>
-        )}
-        <div className="fw-bold"> Total Compra: $ {pesosArg.format(total)} </div>
+      {(!flagCompra && !success && cart.length !== 0) && <div className="cartProduct">               
+          <table class="table table-success table-striped table-hover">
+          <thead>
+              <tr>
+                <th scope="col">Art.</th>
+                <th scope="col">Var.</th>
+                <th scope="col">Cant.</th>
+                <th scope="col">Prec.U</th>
+                <th scope="col">Subt</th>
+                <th scope="col"></th>
+              </tr>
+          </thead>
+          <tbody>        
+            {cart !== [] ? (
+              cart.map((producto, index) => (
+                <tr key={index}>              
+                    <th> {producto.product.nombre} </th>
+                    <td> {producto.product.variedad} </td>
+                    <td> {producto.product.qty} </td>
+                    <td> $ {producto.product.precio} </td>
+                    <td> ${producto.product.precio * producto.product.qty} </td>                
+                    <td><button className="btn btn-danger btnDel" onClick={() => removeItem(index)}>
+                      <img src={Trash} className="trash" alt="trash"></img>
+                    </button> </td>             
+                </tr>
+              ))
+            ) : (
+              <div> El carrito está vacío </div>
+            )}
+          </tbody>
+        </table>
+
+        <div > Total Compra:<strong> $ {pesosArg.format(total)} </strong></div>
         {cart.lenght !== 0 && (
           <>            
-            <button className="btn btn-success m-3" onClick={cambiar}> Terminar Compra </button>
-            <button className="btn btn-info m-3" onClick={clearCart}> Limpiar Carro </button>
+            <button className="btn  m-3 btn-finish" onClick={cambiar}> Terminar Compra </button>
+            <button className="btn  m-3 btn-clear" onClick={clearCart}> Limpiar Carro </button>
           </>
         ) }
       </div>}
@@ -171,13 +179,12 @@ export const Cart = () => {
           placeholder="Observaciones" 
           onChange={handleObs} 
           value={obs}></textarea>
-        </div>        
-        <button  type="button" className="btn btn-info m-3" onClick={cambiar}>Ver Carro</button>                    
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>{verif(mail, nombre, apellido, tel, obs)}}>
+        </div> 
+        <button type="button" disabled={nombre === '' || apellido === '' || mail === '' || tel === ''} className="btn btn-finish" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>{verif(mail, nombre, apellido, tel, obs)}}>
           Confirmar Datos
-        </button>
+        </button>       
+        <button  type="button" className="btn m-3 btn-clear" onClick={cambiar}>Ver Carro</button>
 
-            
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog">
                 <div className="modal-content">
@@ -191,9 +198,8 @@ export const Cart = () => {
                                       <div key={index}>
                                         <div className="product m-3">
                                           <p> {producto.product.nombre} </p>
-                                          <p> {producto.product.qty} </p>
-                                          <p> $ {pesosArg.format(producto.product.precio)} </p>
-                                          <p> {producto.product.precio * producto.product.qty} </p>                                                                                   
+                                          <p> {producto.product.qty} </p>                                          
+                                          <p> ${producto.product.precio * producto.product.qty} </p>                                                                                   
                                         </div>
                                       </div>
                                     ))
@@ -202,9 +208,9 @@ export const Cart = () => {
                                   )}
                                   <div className="fw-bold"> Total Compra: $ {pesosArg.format(total)} </div>
                   </div>
-                  <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
-                    <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={buy}>Confirmar</button>
+                  <div className="modal-footer">                    
+                    <button type="button" className="btn btn-finish" data-bs-dismiss="modal" onClick={buy}>Confirmar</button>
+                    <button type="button" className="btn btn-clear" data-bs-dismiss="modal">Volver</button>
                   </div>
                 </div>
               </div>
@@ -220,7 +226,7 @@ export const Cart = () => {
             <span className="visually-hidden">Loading...</span>
           </div>
           </div>}
-        <button className="btn btn-info"><Link to={"/"}> Volver al Home </Link></button>
+        <button className="btn btn-info m-3"><Link to={"/"}> Volver al Home </Link></button>
         </div>}
         
     </>

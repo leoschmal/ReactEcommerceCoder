@@ -60,7 +60,7 @@ export const ItemDetail = () => {
 
   return (
     <>
-      {item && (
+      {item ? (
         <div className="container">
           <div className="imgContainer">
             <img src={item.url} className="imgDetail" alt="..." />
@@ -71,7 +71,7 @@ export const ItemDetail = () => {
               <span> ${pesosArg.format(item.precio)}</span>
             </p>
             {item.variedad.length !== 0 ? (
-              <select onChange={handleVariedad}>
+              <select onChange={handleVariedad} className="select">
                 {item.variedad.map((variedad, index) => (
                   <option key={index} >{variedad}</option>
                 ))}
@@ -87,15 +87,21 @@ export const ItemDetail = () => {
                 <strong>Agregó {cnt} productos</strong>
               </p>
             )}
-            <button className="btn btn-info m-3">
+            <button className="btn m-3 btn-carrito">
               <Link to={"/cart"}>Ver Carrito </Link>
             </button>
-            <button className="btn btn-info m-3">              
+            <button className="btn m-3 btn-volver">              
               <Link to={"/list"}> Volver</Link>
             </button>
           </div> 
-          <Related item={item}/>         
+          <div className="relacionados" >
+          <Related item={item}/>    
+          </div>     
         </div>
+      ):(<div><h4>Cargando Producto</h4>
+          <div className="spinner-grow" role="status">
+          <span className="visually-hidden">Loading...</span>
+          </div></div>
       )}
     </>
   );

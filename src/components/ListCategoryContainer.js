@@ -1,4 +1,3 @@
-//import {CategoryProducts} from './CategoryProducts';
 import { useParams } from "react-router";
 import {useState, useEffect} from "react";
 import {Item} from "./Item";
@@ -24,6 +23,8 @@ export const ListCategoryContainer = ()=>{
     },[catIde]);
       
     return(
+      <>{
+        products.length !== 0 ? (      
         <div className="itemList">
         {products.map((product, index) => (
             <div key={index}>
@@ -31,7 +32,12 @@ export const ListCategoryContainer = ()=>{
             </div>
             ))         
         }
-      </div>
-        )
-
+      </div>):(<div>
+                  <h3>Cargando Productos</h3>
+                  <div className="spinner-grow" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                  </div>
+                </div>)
+        }</>
+              )
 }

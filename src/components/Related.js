@@ -27,7 +27,7 @@ export const Related = ({item}) => {
     return(
         <div>
             { filtrados.length !== 0 && (
-          <div className="relacionados">
+          <div>
             <h2>Productos Relacionados</h2>
             <div>
               <div className="itemList">                

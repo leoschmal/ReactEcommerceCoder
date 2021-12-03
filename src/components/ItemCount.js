@@ -13,7 +13,7 @@ export const ItemCount = ({inicial, compra}) => {
   
 
   const sumar = () => {
-    if (stock > 0) {
+    if (stock > 1) {
       setContador(contador + 1);
       setStock(stock - 1);      
     };
@@ -31,14 +31,16 @@ export const ItemCount = ({inicial, compra}) => {
   }
 
   return (
-    <div>
+    <div className="contGral">
+    <div className="contenedorCont">
       <div className="addItem">
-        <button onClick={restar} className="btn btn-info">-</button>
+        <button onClick={restar} className="btn  btn-cnt">-</button>
         <h3>{contador}</h3>
-        <button onClick={sumar} className="btn btn-info">+</button>        
+        <button onClick={sumar} className="btn  btn-cnt">+</button>        
       </div>
-      {stock !== 1 ? <p>{stock} disponibles</p> : <h4>Última Disponible</h4>}
-      <button className="btn btn-warning" onClick={onChange}>Agregar ({contador})</button>
+      {stock !== 1 ? <p>{stock} disponibles</p> : <h5>Última Disponible</h5>}
+      <button className="btn btn-add" onClick={onChange}>Agregar ({contador})</button>
+    </div>
     </div>
   );
 };

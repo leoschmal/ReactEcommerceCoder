@@ -1,5 +1,14 @@
 .listContainer{
     display: flex;
     flex-wrap: wrap;
-    margin:4rem;
+    margin:1rem;
+}
+
+@media (max-width: 600px){
+    .listContainer{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin:1rem;
+    }
 }
